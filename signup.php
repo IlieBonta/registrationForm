@@ -5,24 +5,29 @@ $data = $_POST;
 if (isset($data['do_signup'])) {
 // здесь регистрируем
     //проверка на пустоту
-    if (trim($data['login']) === '') {
+    $errors = array();
+    if (trim($data['login']) == '')
+    {
         $errors[] = 'Please, Enter Login';
     }
-    if (trim($data['email']) === '') {
+    if (trim($data['email']) == '')
+    {
         $errors[] = 'Please, Enter Email';
     }
-    if ($data['password'] === '') {
+    if ($data['password'] == '')
+    {
         $errors[] = 'Please, Enter Password';
     }
-    if ($data['password_2'] !== $data['password']) {
+    if ($data['password_2'] != $data['password'])
+    {
         $errors[] = 'Please, Repeat Your Password';
     }
     if (empty($errors)) {
         //если масив с ошибками пуст то можно регистрировать
-    } else {
+    } else
+    {
         // если этот масив не пустой то вывожу ошибку только первую из масива
-        echo '<div style="color: red;">' . array_shift($errors) .
-            '</div><hr>';
+        echo '<div style="color: red;">' . array_shift($errors).'</div><hr>';
     }
 }
 ?>
