@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 require "db.php";
 
 $data = $_POST;
-if (isset($data['do_signup'])) {
+if ( isset($data['do_signup']) ) {
 // здесь регистрируем
     //проверка на пустоту
     $errors = array();
@@ -24,19 +24,25 @@ if (isset($data['do_signup'])) {
     }
     if (empty($errors)) {
         //если масив с ошибками пуст то можно регистрировать
-    } else
-    {
-        // если этот масив не пустой то вывожу ошибку только первую из масива
+        $user = R::dispense('users');
+        $user ->login = $data['login'];
+        $user->email = $data['email'];
+        // шифруем пароль
+        $user->password =password_hash($data['password'],PASSWORD_DEFAULT);
+        R::store($user);
+        echo '<div style="color: green;"> Successful Registration ! </div><hr>';
+    } else {
+        // если этот масив не пустой то вывожу ошибку первую из масива
         echo '<div style="color: red;">' . array_shift($errors).'</div><hr>';
     }
 }
 ?>
 
-<form action="/signup.php" method="POST">
+<form action="http://localhost:63342/registrationForm/signup.php" method="post">
 
     <p>
     <p><strong> Your Login </strong>:</p>
-    <input type="text" name="login" value="<?= @$data['login']?>">
+    <input type="login" name="login" value="<?= @$data['login']?>">
 
 
     <p>
@@ -51,11 +57,11 @@ if (isset($data['do_signup'])) {
 
     <p>
     <p><strong> Repeat Your Password </strong>:</p>
-    <input type="password" name="password_2" value="<?= @$data['password_2']?>">
+    <input type="password_2" name="password_2" value="<?= @$data['password_2']?>">
 
 
     <p>
-        <button type="submit" name="do_signup"> Register</button>
+        <button type="submit" name="do_signup"> Register </button>
     </p>
 
 </form>
