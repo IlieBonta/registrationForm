@@ -7,4 +7,4 @@ R::setup( 'mysql:host=127.0.0.1 ;dbname=registrationForm',
 } else{
     exit("all done");
 }*/
-R::close();
+session_start();

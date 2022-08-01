@@ -38,24 +38,17 @@ if ( isset($data['do_signup']) ) {
 }
 ?>
 
-<form action="http://localhost:63342/registrationForm/signup.php" method="post">
+<form action="" method="post">
 
-    <p>
     <p><strong> Your Login </strong>:</p>
     <input type="text" name="login" value="<?= @$data['login']?>">
 
-
-    <p>
     <p><strong> Your Email </strong>:</p>
     <input type="email" name="email" value="<?= @$data['email']?>">
 
-
-    <p>
     <p><strong> Your Password </strong>:</p>
     <input type="password" name="password" value="<?= @$data['password']?>">
 
-
-    <p>
     <p><strong> Repeat Your Password </strong>:</p>
     <input type="password" name="password_2" value="<?= @$data['password_2']?>">
 
