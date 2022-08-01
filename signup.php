@@ -42,7 +42,7 @@ if ( isset($data['do_signup']) ) {
 
     <p>
     <p><strong> Your Login </strong>:</p>
-    <input type="login" name="login" value="<?= @$data['login']?>">
+    <input type="text" name="login" value="<?= @$data['login']?>">
 
 
     <p>
@@ -57,7 +57,7 @@ if ( isset($data['do_signup']) ) {
 
     <p>
     <p><strong> Repeat Your Password </strong>:</p>
-    <input type="password_2" name="password_2" value="<?= @$data['password_2']?>">
+    <input type="password" name="password_2" value="<?= @$data['password_2']?>">
 
 
     <p>
